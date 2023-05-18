@@ -1,0 +1,8 @@
+
+{% for c in categories %}
+    {% if c.pk == category_selected %}
+        <div class="sidenav_box_selected">{{c.name}}</div>
+    {% else %}
+        <div class="sidenav_box"><a href="{{ c.get_absolute_url }}">{{c.name}}</a></div>
+    {% endif %}
+{% endfor %}

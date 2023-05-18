@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% load pastry_tags %}
+<head>
+    <link rel="icon" href="{% static 'pastrymain/images/logo.jpg' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'pastrymain/css/styles.css' %}">
+    <script type="text/javascript" src="{% static 'pastrymain/js/scripts.js' %}"></script>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+
+<body>
+
+<!-- navigation bar -->
+    <nav class="topnav" id="topnav">
+        {% block mainmenu %}
+            <a class="logo" href="{% url 'main' %}">
+            <img class="logo" src="{% static 'pastrymain/images/logo.jpg' %}" alt=""></a>
+            <div class="topnav-right">
+            {% for m in menu %}
+                    <a href="{% url m.url_name %}">{{m.title}}</a>
+            {% endfor %}
+
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'logout' %}">Выйти {{ user.username }}</a>
+                {% else %}
+                <a href="{% url 'register' %}">Регистрация |</a><a href="{% url 'login' %}">Войти</a>
+            {% endif %}
+            </div>
+                <div class="clear"></div>
+        {% endblock mainmenu %}
+    </nav>
+<!-- end of navigation bar -->
+
+<!-- sidenav -->
+<nav id="mySidenav" class="sidenav">
+    {% if category_selected == 0 %}
+        <div class="sidenav_box_selected">Все категории</div>
+    {% else %}
+        <div class="sidenav_box"><a href="{% url 'main' %}">Все категории</a></div>
+    {% endif %}
+
+    {% for c in categories %}
+        {% if c.recipes__count > 0 %}
+            {% if c.pk == category_selected %}
+                <div class="sidenav_box_selected">{{c.name}}</div>
+            {% else %}
+                <div class="sidenav_box"><a href="{{ c.get_absolute_url }}">{{c.name}}</a></div>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</nav>
+<!-- end of sidenav -->
+
+<!-- content -->
+<div class="content">
+    {% block content %}
+    {% endblock %}
+    </div>
+<!-- end of content -->
+
+<!-- pagination -->
+{% if page_obj.has_other_pages %}
+<nav class="pagination">
+    {% if page_obj.has_previous %}
+    <a class="pagination-links" href="?page={{ page_obj.previous_page_number }}">&lt;</a>
+    {% endif %}
+
+    {% for p in paginator.page_range %}
+        {% if page_obj.number == p %}
+            <li class="pagination-links-selected" href="#">|{{ p }}|</li>
+        {% elif p >= page.obj.number|add:-2 and p <= page_obj.number|add:2 %}
+            <a class="pagination-links" href="?page={{ p }}">|{{ p }}|</a>
+        {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+    <a class="pagination-links" href="?page={{ page_obj.next_page_number }}">&gt;</a>
+    {% endif %}
+</nav>
+{% endif %}
+<!-- end of pagination -->
+
+<!-- footer -->
+<div id="footer">
+    <p>footer line</p>
+</div>
+<!-- end of footer -->
+
+</body>
+</html>

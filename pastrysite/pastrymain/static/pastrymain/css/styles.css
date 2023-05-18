@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&family=Pacifico&family=Silkscreen&family=Spline+Sans+Mono:wght@300&display=swap');
+
+body {
+    margin: 0px;
+    font-family: 'Spline Sans Mono', monospace, sans-serif;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 700;
+    /* text-decoration: underline;*/
+    font-style: italic;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+}
+
+
+/* ------------------ */
+/* TOP NAVIGATION BAR */
+/* ------------------ */
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #3C2B2AFF;
+    overflow: hidden;
+    position: fixed; /* Make it stick/fixed */
+    top: 0; /* Stay on top */
+    width: 100%; /* Full width */
+    transition: top 1s; /* Transition effect when sliding down (and up) */
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #704F37FF;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #3C2B2AFF;
+    color: #704F37FF;
+    opacity: 0.8;
+}
+
+/* Right-aligned section inside the top navigation */
+.topnav-right {
+    float: right;
+    color: #704F37FF;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+/* --------- */
+/* LEFT TABS */
+/* ----------*/
+
+#mySidenav {
+    position: fixed;
+    top: 110px;
+}
+
+/* Style the links inside the sidenav */
+#mySidenav a {
+    position: relative; /* Position them relative to the browser window */
+    left: -15px; /* Position them outside of the screen */
+    transition: 1s; /* Add transition on hover */
+    padding-left: 20px;
+    line-height: 20px;
+    max-width: fit-content;
+    text-decoration: none; /* Remove underline */
+    font-size: 15px; /* Increase font size */
+    color: #704F37FF; /* White text color */
+}
+
+.sidenav_box_selected {
+    position: relative; /* Position them relative to the browser window */
+    left: -15px; /* Position them outside of the screen */
+    padding-left: 20px;
+    line-height: 20px;
+    height: 20px;
+    max-width: fit-content; /* Set a specific width */
+    opacity: 0.3;
+    text-decoration: none; /* Remove underline */
+    font-size: 15px; /* Increase font size */
+    color: #704F37FF; /* White text color */
+}
+
+#mySidenav a:hover {
+    left: 0; /* On mouse-over, make the elements appear as they should */
+}
+
+
+
+/* ------------------- */
+
+a.title-read-recipes {
+    color: #704F37FF;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 38px;
+}
+a:hover.title-read-recipes {
+    color: #704F37FF;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 38px;
+    opacity: 0.3;
+}
+
+
+.clear {clear: both;}
+
+.content {
+    margin-top: 110px;
+    margin-left: 170px;
+}
+
+img {max-width: 600px; height: auto;}
+
+img.img-article-left {
+	max-width: 300px;
+	height: auto;
+	float: left;
+	padding: 0 10px 10px 0;
+}
+
+img.img-article-left.thumb {
+    max-width: 250px;
+	height: auto;
+}
+
+
+div.article-panel {
+    background: #f5f4f1;
+    padding: 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-size: 12px;
+    color: #b5a28f;
+}
+div.article-panel p.first {
+    margin: 0;
+    float: left;
+}
+div.article-panel p.last {
+    margin: 0;
+    float: right;
+}
+
+ul.list-articles {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+ul.list-articles li {
+	border-bottom: 1px solid #ccc;
+}
+
+nav.pagination {
+    margin: 20px;
+    float: right;
+}
+
+a.pagination-links {
+    color: #704F37FF;
+    padding: 3px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+a:hover.pagination-links {
+    opacity: 0.3;
+}
+
+li.pagination-links-selected {
+    display: inline-block;
+    color: #704F37FF;
+    padding: 3px;
+    text-decoration: none;
+    font-size: 15px;
+    opacity: 0.3;
+}
+
+.form-input {
+    width: 300px;
+    font-size: 16px;
+}
+
+.form-label {
+    display: inline-block;
+    min-width: 200px;
+    vertical-align: top;
+}
+
+.form-error ul {
+    list-style: none;
+    padding: 0;
+    color: #CC0000;
+}
+
+.form-button {
+    min-width: 200px;
+    font-size: 16px;
+}

@@ -1,0 +1,24 @@
+{% extends 'pastrymain/base.html' %}
+
+{% block content %}
+<ul class="list-articles">
+	{% for p in recipes %}
+		<li><div class="article-panel">
+		<p class="first">Категория: {{p.category}}</p>
+		<p class="last">Дата: {{p.time_update|date:"d-m-Y H:i:s"}}</p>
+		</div>
+
+		{% if p.image %}
+			<p><img class="img-article-left thumb" src="{{p.image.url}}"></p>
+		{% endif %}
+
+		<h2><a class="title-read-recipes" href="{{ p.get_absolute_url }}">{{ p.title }}</a></h2>
+		{% autoescape on %}
+		{{p.content|linebreaks|truncatewords:15}}
+		{% endautoescape %}
+		<div class="clear"></div>
+		</li>
+	{% endfor %}
+</ul>	
+{% endblock %}
+

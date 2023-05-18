@@ -1,0 +1,13 @@
+{% extends 'pastrymain/base.html' %}
+
+{% block content %}
+<br>
+<h1>{{recipes.title}}</h1>
+
+{% if recipes.image %}
+	<p><img class="img-article-left thumb" src="{{recipes.image.url}}"></p>
+{% endif %}
+
+{{recipes.content|linebreaks}}
+<hr>
+{% endblock %}
